@@ -1,1 +1,11 @@
-
+{
+  "name": "multi-stage-docker-build",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}
