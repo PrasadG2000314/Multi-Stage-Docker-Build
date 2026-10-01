@@ -17,14 +17,14 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Security best practice: root නොවන user කෙනෙක් යොදා ගැනීම
-USER node
-
 # Builder stage එකෙන් අවශ්‍ය files පමණක් copy කර ගැනීම
 COPY --chown=node:node package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 COPY --chown=node:node --from=builder /app/dist ./dist
+
+# Security best practice: root නොවන user කෙනෙක් යොදා ගැනීම
+USER node
 
 EXPOSE 3000
 
